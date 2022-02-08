@@ -1,5 +1,10 @@
 package com.zespol11.programowanienzespolowe.menu;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +13,10 @@ import java.util.Map;
 
 @Entity
 @Table
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class MenuItem {
 
     @Id
@@ -30,77 +39,5 @@ public class MenuItem {
     private Map<String, Float> additions = new HashMap<>();
     private Float price;
 
-    public MenuItem(String name, String itemImageLink, List<String> ingredients, Map<String, Float> additions, Float price) {
-        this.name = name;
-        this.itemImageLink = itemImageLink;
-        this.ingredients = ingredients;
-        this.additions = additions;
-        this.price = price;
-    }
 
-    public MenuItem() {
-
-    }
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getItemImageLink() {
-        return itemImageLink;
-    }
-
-    public void setItemImageLink(String itemImageLink) {
-        this.itemImageLink = itemImageLink;
-    }
-
-    public List<String> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<String> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public Map<String, Float> getAdditions() {
-        return additions;
-    }
-
-    public void setAdditions(Map<String, Float> additions) {
-        this.additions = additions;
-    }
-
-    public Float getPrice() {
-        return price;
-    }
-
-    public void setPrice(Float price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "MenuItem{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", itemImageLink='" + itemImageLink + '\'' +
-                ", ingredients=" + ingredients +
-                ", additions=" + additions +
-                ", price=" + price +
-                '}';
-    }
 }
