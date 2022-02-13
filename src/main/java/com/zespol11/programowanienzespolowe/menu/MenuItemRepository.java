@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
-public interface MenuItemRepository extends JpaRepository<MenuItem, Long> {
+//@Repository
+//public interface MenuItemRepository extends JpaRepository<MenuItem, Long> {
 
-    @Query("SELECT m FROM MenuItem m WHERE m.name = ?1")
-    Optional<MenuItem> findMenuItemByName(String name);
-
-    void deleteByName(String name);
-}
+//    @Query("SELECT m FROM MenuItem m WHERE m.name = ?1")
+//    Optional<MenuItem> findMenuItemByName(String name);
+//
+////    void deleteByName(String name);
+//}

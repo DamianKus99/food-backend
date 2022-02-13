@@ -1,4 +1,4 @@
-package com.zespol11.programowanienzespolowe.order;
+package com.zespol11.programowanienzespolowe.order.orderMaster;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,26 +42,6 @@ public class OrderMasterService {
         if(oM.getOrderNumber() != null
                 && !Objects.equals(oM.getOrderNumber(), orderMasters.getOrderNumber())){
             orderMasters.setOrderNumber(oM.getOrderNumber());
-        }
-
-        if(oM.getCustomerId() != null &&
-                !Objects.equals(oM.getCustomerId(), orderMasters.getCustomerId())){
-            orderMasters.setCustomerId(oM.getCustomerId());
-        }
-
-        if(oM.getPMethod() != null &&
-            !Objects.equals(oM.getPMethod(), orderMasters.getPMethod())){
-            orderMasters.setPMethod(oM.getPMethod());
-        }
-
-        if(oM.getCustomerId() != null &&
-                !Objects.equals(orderMasters.getCustomerId(), oM.getCustomerId())){
-            orderMasters.setCustomerId(oM.getCustomerId());
-        }
-
-        if(oM.getTotalAmount() != null &&
-                !Objects.equals(orderMasters.getTotalAmount(), oM.getTotalAmount())){
-            orderMasters.setTotalAmount(oM.getTotalAmount());
         }
 
 

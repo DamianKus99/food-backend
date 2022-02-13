@@ -1,13 +1,15 @@
-package com.zespol11.programowanienzespolowe.order;
+package com.zespol11.programowanienzespolowe.order.orderDetails;
 
+import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetails;
+import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/order/details")
+//@RestController
+//@RequestMapping("/api/order/details")
 public class OrderDetailsController {
 
     private final OrderDetailsService orderDetailsService;

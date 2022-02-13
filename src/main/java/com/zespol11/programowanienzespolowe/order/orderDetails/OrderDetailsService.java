@@ -1,5 +1,7 @@
-package com.zespol11.programowanienzespolowe.order;
+package com.zespol11.programowanienzespolowe.order.orderDetails;
 
+import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetails;
+import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,23 +36,7 @@ public class OrderDetailsService {
                         "orderDetails with id " + id + "does not exists"
                 ));
 
-        if(oD.getOrderMastersId() != null &&
-        !Objects.equals(oD.getOrderMastersId(), orderDetails.getOrderMastersId())
-        ){
-            orderDetails.setOrderMastersId(oD.getOrderMastersId());
-        }
 
-        if(oD.getMenuItemPrice() != null &&
-        !Objects.equals(oD.getMenuItemPrice(), orderDetails.getMenuItem())
-        ){
-            orderDetails.setMenuItemPrice(oD.getMenuItemPrice());
-        }
-
-        if(oD.getMenuItem() != null &&
-        !Objects.equals(oD.getMenuItem(), orderDetails.getMenuItem())
-        ){
-            orderDetails.setMenuItem(oD.getMenuItem());
-        }
 
         if(oD.getQuantity() != null &&
         !Objects.equals(oD.getQuantity(), orderDetails.getQuantity())
