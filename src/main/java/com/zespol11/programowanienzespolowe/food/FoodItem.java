@@ -1,20 +1,19 @@
 package com.zespol11.programowanienzespolowe.food;
 
+import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetails;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@CrossOrigin("*")
 public class FoodItem {
 
     @Id
