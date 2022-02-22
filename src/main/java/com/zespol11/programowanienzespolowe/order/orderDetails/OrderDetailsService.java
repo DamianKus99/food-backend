@@ -24,6 +24,7 @@ public class OrderDetailsService {
     }
 
     public List<OrderDetails> getOrderDetails(Long id){
+
         return orderDetailsRepository.findOrderDetails(id);
     }
 
@@ -35,8 +36,6 @@ public class OrderDetailsService {
                 .orElseThrow(()-> new IllegalStateException(
                         "orderDetails with id " + id + "does not exists"
                 ));
-
-
 
         if(oD.getQuantity() != null &&
         !Objects.equals(oD.getQuantity(), orderDetails.getQuantity())

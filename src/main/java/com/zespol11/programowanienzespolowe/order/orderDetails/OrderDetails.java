@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.zespol11.programowanienzespolowe.food.FoodItem;
 import com.zespol11.programowanienzespolowe.order.orderMaster.OrderMasters;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 
 import javax.persistence.*;
@@ -21,6 +18,7 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "orderDetailId"
@@ -36,11 +34,13 @@ public class OrderDetails {
     @JoinColumn(name = "ordermaster_id")
     private OrderMasters orderMaster;
 
-    @ManyToMany
-    private List<FoodItem> foodItem;
-
-    private Double foodItemPrice;
+    @ManyToOne
+    @JoinColumn(name = "fooditem_id")
+    private FoodItem foodItem;
 
     private Integer quantity;
+
+
+
 
 }

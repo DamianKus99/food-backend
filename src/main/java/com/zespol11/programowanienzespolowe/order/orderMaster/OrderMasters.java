@@ -42,7 +42,6 @@ public class OrderMasters {
     @JoinColumn(name = "ordermaster_id")
     private List<OrderDetails> orderDetails;
 
-
     private String pMethod;
 
     private Double gTotal;

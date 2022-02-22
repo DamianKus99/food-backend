@@ -19,7 +19,6 @@ public class OrderDetailsController {
         this.orderDetailsService = orderDetailsService;
     }
 
-
     @GetMapping(path = "/{id}")
     public List<OrderDetails> getOrderDetails(@PathVariable Long id){
      return orderDetailsService.getOrderDetails(id);

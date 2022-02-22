@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/order")
-@CrossOrigin("*")
+@CrossOrigin
 public class OrderController {
 
     private final OrderMasterService orderMasterService;
@@ -28,24 +28,12 @@ public class OrderController {
 
     @GetMapping(path = "/{id}")
     public Optional<OrderMasters> getOrder(@PathVariable Long id){
-        return orderMasterService.getOrder(id);
+        return orderMasterService.getOrderById(id);
     }
 
     @PostMapping
     public void postOrder(@RequestBody OrderMasters orderMasters){
         orderMasterService.saveOrder(orderMasters);
-    }
-
-    @PutMapping
-    public ResponseEntity<?> updateOrder(@RequestBody OrderMasters orderMasters){
-        orderMasterService.saveOrder(orderMasters);
-        return ResponseEntity.ok("resource updated");
-    }
-
-    @PatchMapping(path = "/{id}")
-    public ResponseEntity<?> partialUpdateOrder(@PathVariable("id") Long id, @RequestBody OrderMasters orderMasters){
-        orderMasterService.partialUpdateOrder(id, orderMasters);
-        return ResponseEntity.ok("resource updated");
     }
 
     @DeleteMapping(path = "/{id}")
