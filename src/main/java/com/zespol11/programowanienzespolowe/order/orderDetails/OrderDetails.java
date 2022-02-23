@@ -1,6 +1,7 @@
 package com.zespol11.programowanienzespolowe.order.orderDetails;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.zespol11.programowanienzespolowe.food.FoodItem;
 import com.zespol11.programowanienzespolowe.order.orderMaster.OrderMasters;
@@ -29,9 +30,9 @@ public class OrderDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderDetailId;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ordermaster_id")
+    @JsonIgnore
     private OrderMasters orderMaster;
 
     @ManyToOne
@@ -39,8 +40,6 @@ public class OrderDetails {
     private FoodItem foodItem;
 
     private Integer quantity;
-
-
 
 
 }

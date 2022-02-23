@@ -1,4 +1,4 @@
-package com.zespol11.programowanienzespolowe.order;
+package com.zespol11.programowanienzespolowe.order.orderMaster;
 
 import com.zespol11.programowanienzespolowe.order.orderMaster.OrderMasterService;
 import com.zespol11.programowanienzespolowe.order.orderMaster.OrderMasters;
