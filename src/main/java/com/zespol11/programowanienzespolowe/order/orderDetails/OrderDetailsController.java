@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@RestController
-//@RequestMapping("/api/order/details")
+@RestController
+@CrossOrigin
+@RequestMapping("/api/order/details")
 public class OrderDetailsController {
 
     private final OrderDetailsService orderDetailsService;
@@ -20,7 +21,7 @@ public class OrderDetailsController {
     }
 
     @GetMapping(path = "/{id}")
-    public List<OrderDetails> getOrderDetails(@PathVariable Long id){
+    public OrderDetails getOrderDetail(@PathVariable Long id){
      return orderDetailsService.getOrderDetails(id);
     }
 
@@ -30,17 +31,16 @@ public class OrderDetailsController {
         return ResponseEntity.ok("resource added");
     }
 
-    @PutMapping
-    public ResponseEntity<?> updateOrderDetails(@RequestBody OrderDetails orderDetails){
-        orderDetailsService.saveOrder(orderDetails);
+    @PutMapping(path = {"/{orderDetailID}"})
+    public ResponseEntity<?> updateOrderDetails(@PathVariable("orderDetailID") Long orderDetailID,
+                                                @RequestParam(required = false) Long foodItemID,
+                                                @RequestParam(required = false) Integer quantity){
+        orderDetailsService.paritalUpdate(orderDetailID, foodItemID, quantity);
+
         return ResponseEntity.ok("resource updated");
     }
 
-    @PatchMapping(path = "/{id}")
-    public ResponseEntity<?> partialUpdateOrderDetails(@PathVariable Long id, @RequestBody OrderDetails orderDetails){
-        orderDetailsService.paritalUpdate(id, orderDetails);
-        return ResponseEntity.ok("resource updated");
-    }
+
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> deleteOrderDetails(@PathVariable Long id){
