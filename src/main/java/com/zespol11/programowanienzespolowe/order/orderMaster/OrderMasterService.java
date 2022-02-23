@@ -1,5 +1,6 @@
 package com.zespol11.programowanienzespolowe.order.orderMaster;
 
+import com.zespol11.programowanienzespolowe.food.FoodItem;
 import com.zespol11.programowanienzespolowe.food.FoodItemRepository;
 import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetails;
 import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetailsRepository;
@@ -43,16 +44,24 @@ public class OrderMasterService {
             );
         }
 
+
+
         for(OrderDetails o: orderMasters.getOrderDetails()){
 
-            Long foodItemId = o.getFoodItem().getFoodItemId();
+            Long foodItemId = o.getFoodItemID();
             exist = foodItemRepository.
                     existsById(foodItemId);
 
             if(!exist){
                 throw new IllegalStateException("foodItem with id " + foodItemId + " does not exist");
             }
+
+            Optional<FoodItem> foodItem = foodItemRepository.findById(foodItemId);
+
+            o.setFoodItem(foodItem.get());
         }
+
+
 
         orderMasterRepository.save(orderMasters);
     }

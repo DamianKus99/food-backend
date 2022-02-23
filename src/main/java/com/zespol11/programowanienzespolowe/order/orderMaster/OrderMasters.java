@@ -44,7 +44,7 @@ public class OrderMasters {
 
     private String pMethod;
 
-    private Double gTotal;
+
 
 
 

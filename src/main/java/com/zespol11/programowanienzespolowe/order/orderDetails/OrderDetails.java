@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.zespol11.programowanienzespolowe.food.FoodItem;
 import com.zespol11.programowanienzespolowe.order.orderMaster.OrderMasters;
 import lombok.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 import javax.persistence.*;
@@ -38,6 +39,8 @@ public class OrderDetails {
     @ManyToOne
     @JoinColumn(name = "fooditem_id")
     private FoodItem foodItem;
+
+    private Long foodItemID;
 
     private Integer quantity;
 
