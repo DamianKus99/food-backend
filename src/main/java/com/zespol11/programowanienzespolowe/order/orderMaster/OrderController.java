@@ -1,5 +1,7 @@
-package com.zespol11.programowanienzespolowe.order;
+package com.zespol11.programowanienzespolowe.order.orderMaster;
 
+import com.zespol11.programowanienzespolowe.order.orderMaster.OrderMasterService;
+import com.zespol11.programowanienzespolowe.order.orderMaster.OrderMasters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/order")
+@CrossOrigin
 public class OrderController {
 
     private final OrderMasterService orderMasterService;
@@ -25,24 +28,12 @@ public class OrderController {
 
     @GetMapping(path = "/{id}")
     public Optional<OrderMasters> getOrder(@PathVariable Long id){
-        return orderMasterService.getOrder(id);
+        return orderMasterService.getOrderById(id);
     }
 
     @PostMapping
     public void postOrder(@RequestBody OrderMasters orderMasters){
         orderMasterService.saveOrder(orderMasters);
-    }
-
-    @PutMapping
-    public ResponseEntity<?> updateOrder(@RequestBody OrderMasters orderMasters){
-        orderMasterService.saveOrder(orderMasters);
-        return ResponseEntity.ok("resource updated");
-    }
-
-    @PatchMapping(path = "/{id}")
-    public ResponseEntity<?> partialUpdateOrder(@PathVariable("id") Long id, @RequestBody OrderMasters orderMasters){
-        orderMasterService.partialUpdateOrder(id, orderMasters);
-        return ResponseEntity.ok("resource updated");
     }
 
     @DeleteMapping(path = "/{id}")
