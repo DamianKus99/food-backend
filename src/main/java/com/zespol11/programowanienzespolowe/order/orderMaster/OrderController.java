@@ -1,5 +1,6 @@
 package com.zespol11.programowanienzespolowe.order.orderMaster;
 
+import com.zespol11.programowanienzespolowe.order.EnumStatus;
 import com.zespol11.programowanienzespolowe.order.orderMaster.OrderMasterService;
 import com.zespol11.programowanienzespolowe.order.orderMaster.OrderMasters;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,37 @@ public class OrderController {
         return orderMasterService.getOrderById(id);
     }
 
+    @GetMapping("/ready")
+    public List<OrderMasters> getReady(){
+        return orderMasterService.getOrdersWithStatus(EnumStatus.READY);
+    }
+
+    @GetMapping("/ordered")
+    public List<OrderMasters> getOrdered(){
+        return orderMasterService.getOrdersWithStatus(EnumStatus.ORDERED);
+    }
+
+    @GetMapping("/preparing")
+    public List<OrderMasters> getPreparing(){return orderMasterService.getOrdersWithStatus(EnumStatus.PREPARING);}
+
     @PostMapping
     public void postOrder(@RequestBody OrderMasters orderMasters){
         orderMasterService.saveOrder(orderMasters);
+    }
+
+    @PutMapping(path= "/change-status-to-ready/{id}")
+    public void changeStatusToReady(@PathVariable Long id){
+        orderMasterService.changeStatus(id, EnumStatus.READY);
+    }
+
+    @PutMapping(path= "/change-status-to-preparing/{id}")
+    public void changeStatusToPreparing(@PathVariable Long id){
+        orderMasterService.changeStatus(id, EnumStatus.PREPARING);
+    }
+
+    @PutMapping(path= "/change-status-to-delivered/{id}")
+    public void changeStatusToDelivered(@PathVariable Long id){
+        orderMasterService.changeStatus(id, EnumStatus.DELIVERED);
     }
 
     @DeleteMapping(path = "/{id}")
