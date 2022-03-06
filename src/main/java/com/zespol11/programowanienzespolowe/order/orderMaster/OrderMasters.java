@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.zespol11.programowanienzespolowe.order.EnumStatus;
 import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetails;
-import com.zespol11.programowanienzespolowe.userRegistration.User;
+
+import com.zespol11.programowanienzespolowe.userRegistration.appuser.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

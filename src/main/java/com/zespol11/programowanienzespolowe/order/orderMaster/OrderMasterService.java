@@ -5,13 +5,12 @@ import com.zespol11.programowanienzespolowe.food.FoodItemRepository;
 import com.zespol11.programowanienzespolowe.order.EnumStatus;
 import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetails;
 import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetailsRepository;
-import com.zespol11.programowanienzespolowe.userRegistration.UserRepository;
+import com.zespol11.programowanienzespolowe.userRegistration.appuser.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 
