@@ -2,9 +2,10 @@ package com.zespol11.programowanienzespolowe.order.orderMaster;
 
 import com.zespol11.programowanienzespolowe.food.FoodItem;
 import com.zespol11.programowanienzespolowe.food.FoodItemRepository;
+import com.zespol11.programowanienzespolowe.order.EnumStatus;
 import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetails;
 import com.zespol11.programowanienzespolowe.order.orderDetails.OrderDetailsRepository;
-import com.zespol11.programowanienzespolowe.userRegistration.UserRepository;
+import com.zespol11.programowanienzespolowe.userRegistration.appuser.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -61,7 +62,9 @@ public class OrderMasterService {
             o.setFoodItem(foodItem.get());
         }
 
+        EnumStatus status = EnumStatus.ORDERED;
 
+        orderMasters.setStatus(status);
 
         orderMasterRepository.save(orderMasters);
     }
@@ -107,5 +110,29 @@ public class OrderMasterService {
         }
 
         orderMasterRepository.deleteById(id);
+    }
+
+    public List<OrderMasters> getOrdersWithStatus(EnumStatus e) {
+        Optional<List<OrderMasters>> optionalOrderMasters = orderMasterRepository.findByStatus(e);
+
+        if(optionalOrderMasters.isEmpty()){
+            throw new IllegalStateException(
+              "no orders with status " + e
+            );
+        }
+
+        return optionalOrderMasters.get();
+    }
+
+    @Transactional
+    public void changeStatus(Long id, EnumStatus e){
+
+        OrderMasters orderMasters = orderMasterRepository.findById(id).orElseThrow(
+                () -> new IllegalStateException(
+                        "orderMaster with id " + id + "does not exist"
+                ));
+
+        orderMasters.setStatus(e);
+
     }
 }
