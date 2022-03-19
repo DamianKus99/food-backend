@@ -52,9 +52,10 @@ public class User implements UserDetails {
         this.appUserRole = appUserRole;
     }
 
-    public User(Long customerId, String name) {
+    public User(Long customerId, String name, UserRole appUserRole) {
         this.customerId = customerId;
         this.name = name;
+        this.appUserRole = appUserRole;
     }
 
     @Override
