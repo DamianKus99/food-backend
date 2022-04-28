@@ -1,0 +1,30 @@
+package com.zespol11.programowanienzespolowe.reservation.repositories;
+
+import com.zespol11.programowanienzespolowe.reservation.models.VenueTable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface IVenueTableRepository extends JpaRepository<VenueTable, Long> {
+    List<VenueTable> findByCovers(Integer covers);
+
+    List<VenueTable> findByCoversGreaterThan(Integer covers);
+
+    List<VenueTable> findByCoversLessThan(Integer covers);
+
+    List<VenueTable> findByVenueId(Long id);
+
+    List<VenueTable> findAllByOrderByCoversAsc();
+
+    List<VenueTable> findAllByOrderByCoversDesc();
+
+    List<VenueTable> findByCoversGreaterThanAndCoversLessThan(Integer coversOver, Integer coversUnder);
+
+    List<VenueTable> findAllByOrderByIdDesc();
+
+    List<VenueTable> findAllByOrderByVenue_IdAsc();
+
+    List<VenueTable> findAllByOrderByVenue_IdDesc();
+}
