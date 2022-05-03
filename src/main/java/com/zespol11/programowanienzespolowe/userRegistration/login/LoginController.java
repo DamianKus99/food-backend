@@ -15,4 +15,14 @@ public class LoginController {
     public String publicResource() {
         return "The Public Resource";
     }
+
+
+    @RequestMapping("/kucharz")
+    public String kucharz() {
+        return "kucharz kucharzowski";
+    }
+    @RequestMapping("/hello")
+    public String hello_page() {
+        return "hello";
+    }
 }

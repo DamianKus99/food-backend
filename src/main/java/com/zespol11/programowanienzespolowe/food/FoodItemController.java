@@ -18,8 +18,24 @@ public class FoodItemController {
     }
 
     @GetMapping
-    public List<FoodItem> getFoodItems(){
-        return foodItemService.getFoodItems();
+
+    public List<FoodItem> getFoodItems(
+            @RequestParam(required = false, name = "type") String type,
+            @RequestParam(required = false, name = "type-asc") Boolean typeAsc,
+            @RequestParam(required = false, name = "type-desc") Boolean typeDesc,
+            @RequestParam(required = false, name = "price-asc") Boolean priceAsc,
+            @RequestParam(required = false, name = "price-desc") Boolean priceDesc,
+            @RequestParam(required = false, name = "name-asc") Boolean nameAsc,
+            @RequestParam(required = false, name = "name-desc") Boolean nameDesc){
+        return foodItemService.getFoodItems(
+                type,
+                typeAsc,
+                typeDesc,
+                priceAsc,
+                priceDesc,
+                nameAsc,
+                nameDesc
+        );
     }
 
     @GetMapping(path = "{foodItemId}")

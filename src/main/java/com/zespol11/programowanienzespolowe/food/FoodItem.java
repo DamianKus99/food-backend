@@ -6,7 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Objects;
 
 
 @Getter
@@ -24,5 +31,20 @@ public class FoodItem {
 
     private Double price;
 
+    private String type;
 
+    private Boolean avaiable;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FoodItem foodItem = (FoodItem) o;
+        return Objects.equals(foodItemId, foodItem.foodItemId) && Objects.equals(name, foodItem.name) && Objects.equals(price, foodItem.price) && Objects.equals(type, foodItem.type) && Objects.equals(avaiable, foodItem.avaiable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(foodItemId, name, price, type, avaiable);
+    }
 }

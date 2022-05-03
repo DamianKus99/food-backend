@@ -20,7 +20,44 @@ public class FoodItemService {
         this.foodItemRepository = foodItemRepository;
     }
 
-    public List<FoodItem> getFoodItems() {
+    public List<FoodItem> getFoodItems(
+            String type,
+            Boolean typeAsc,
+            Boolean typeDesc,
+            Boolean priceAsc,
+            Boolean priceDesc,
+            Boolean nameAsc,
+            Boolean nameDesc
+    ) {
+
+        if(type != null){
+            return foodItemRepository.findAllByTypeEquals(type);
+        }
+
+        if(typeAsc!=null){
+            return foodItemRepository.findAllByOrderByTypeAsc();
+        }
+
+        if(typeDesc!=null){
+            return foodItemRepository.findAllByOrderByTypeDesc();
+        }
+
+        if(priceAsc!=null){
+            return foodItemRepository.findAllByOrderByPriceAsc();
+        }
+
+        if(priceDesc!=null){
+            return foodItemRepository.findAllByOrderByPriceDesc();
+        }
+
+        if(nameAsc!=null){
+            return foodItemRepository.findAllByOrderByNameAsc();
+        }
+
+        if(nameDesc!=null){
+            return foodItemRepository.findAllByOrderByNameDesc();
+        }
+
         return foodItemRepository.findAll();
     }
 
@@ -90,10 +127,10 @@ public class FoodItemService {
 
     @EventListener(ApplicationReadyEvent.class)
     public void fillDB(){
-        addNewFoodItem(new FoodItem(1L,"Gnochi ze szpinakiem i pomidorami suszonymi", 33.90));
-        addNewFoodItem(new FoodItem(2L,"Pieczone żeberka w pikantnej marynacie", 42.90));
-        addNewFoodItem(new FoodItem(3L,"Paluchy z parmezanem i sosem pikantnym", 24.90));
-        addNewFoodItem(new FoodItem(4L,"Kotlet Schabowy po staropolsku", 37.90));
+        addNewFoodItem(new FoodItem(1L,"Gnochi ze szpinakiem i pomidorami suszonymi", 33.90, "lunch", true));
+        addNewFoodItem(new FoodItem(2L,"Pieczone żeberka w pikantnej marynacie", 42.90, "sniadanie", false));
+        addNewFoodItem(new FoodItem(3L,"Paluchy z parmezanem i sosem pikantnym", 24.90, "lunch", true));
+        addNewFoodItem(new FoodItem(4L,"Kotlet Schabowy po staropolsku", 37.90, "sniadanie", true));
     }
 
 }
