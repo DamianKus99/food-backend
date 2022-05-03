@@ -1,12 +1,9 @@
 package com.zespol11.programowanienzespolowe.userRegistration.appuser;
 
 
-import com.zespol11.programowanienzespolowe.userRegistration.registration.token.ConfirmationToken;
-import com.zespol11.programowanienzespolowe.userRegistration.registration.token.ConfirmationTokenService;
+import com.zespol11.programowanienzespolowe.reservation.registration.token.ConfirmationToken;
+import com.zespol11.programowanienzespolowe.reservation.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -85,14 +82,6 @@ public class UserService implements UserDetailsService {
 
     @EventListener(ApplicationReadyEvent.class)
     public void fillDB(){
-
-        addNewUser(new User(1L, "Andrzej",UserRole.USER));
-        addNewUser(new User(2L, "Jacek",UserRole.USER));
-        addNewUser(new User(3L, "Barbara",UserRole.USER));
-        addNewUser(new User(4L, "Małgorzata",UserRole.USER));
-        addNewUser(new User(5L, "Jerzy",UserRole.USER));
-        addNewUser(new User(6L,  "Wiesław",UserRole.ADMIN));
-
         addNewUser(new User(1L, "Andrzej"));
         addNewUser(new User(2L, "Jacek"));
         addNewUser(new User(3L, "Barbara"));
@@ -100,6 +89,5 @@ public class UserService implements UserDetailsService {
         addNewUser(new User(5L, "Jerzy"));
         addNewUser(new User(6L, "Wiesław"));
         addNewUser(new User("TEST","TTT","test@test.pl","123",UserRole.USER));
-
     }
 }

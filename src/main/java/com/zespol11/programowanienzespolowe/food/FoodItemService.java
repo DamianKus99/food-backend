@@ -85,21 +85,24 @@ public class FoodItemService {
     @Transactional
     public void updateFoodItem(Long foodItemID,
                                String name,
-                               Double price) {
+                               Double price,
+                               String type,
+                               Boolean avaiable,
+                               String yes) {
 
         FoodItem foodItem = foodItemRepository.findById(foodItemID)
                 .orElseThrow(() -> new IllegalStateException(
-                   "student with id" + foodItemID + "does not exist"
+                        "student with id" + foodItemID + "does not exist"
                 ));
 
-        if(name != null &&
+        if (name != null &&
                 name.length() > 0 &&
                 !Objects.equals(foodItem.getName(), name)
-        ){
+        ) {
             Optional<FoodItem> foodItemOptional = foodItemRepository
                     .findFoodItemByName(name);
 
-            if(foodItemOptional.isPresent()){
+            if (foodItemOptional.isPresent()) {
                 throw new IllegalStateException("name taken");
             }
 
@@ -107,12 +110,27 @@ public class FoodItemService {
 
         }
 
-        if(price != null &&
+        if (price != null &&
                 !Objects.equals(foodItem.getPrice(), price)
-        ){
+        ) {
             foodItem.setPrice(price);
         }
 
+        if (type != null &&
+                type.length() > 0 &&
+                !Objects.equals(foodItem.getType(), type)
+        ) {
+
+            foodItem.setType(type);
+
+        }
+
+        if(yes != null &&
+                yes.length() > 0) {
+            if (foodItem.getAvaiable() == true) {
+                foodItem.setAvaiable(false);
+            } else foodItem.setAvaiable(true);
+        }
 
     }
 
@@ -127,10 +145,12 @@ public class FoodItemService {
 
     @EventListener(ApplicationReadyEvent.class)
     public void fillDB(){
-        addNewFoodItem(new FoodItem(1L,"Gnochi ze szpinakiem i pomidorami suszonymi", 33.90, "lunch", true));
-        addNewFoodItem(new FoodItem(2L,"Pieczone żeberka w pikantnej marynacie", 42.90, "sniadanie", false));
-        addNewFoodItem(new FoodItem(3L,"Paluchy z parmezanem i sosem pikantnym", 24.90, "lunch", true));
-        addNewFoodItem(new FoodItem(4L,"Kotlet Schabowy po staropolsku", 37.90, "sniadanie", true));
+        addNewFoodItem(new FoodItem(1L,"Gnochi ze szpinakiem i pomidorami suszonymi", 33.90, "dania-glowne", true));
+        addNewFoodItem(new FoodItem(2L,"Pieczone żeberka w pikantnej marynacie", 42.90, "sniadania", false));
+        addNewFoodItem(new FoodItem(3L,"Paluchy z parmezanem i sosem pikantnym", 24.90, "dania-glowne", true));
+        addNewFoodItem(new FoodItem(4L,"Lody", 37.90, "desery", true));
+        addNewFoodItem(new FoodItem(5L,"Sałatka grecka", 38.90, "salatki", true));
+        addNewFoodItem(new FoodItem(6L,"Cola", 37.90, "napoje", true));
     }
 
 }

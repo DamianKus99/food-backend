@@ -16,7 +16,6 @@ public class LoginController {
         return "The Public Resource";
     }
 
-
     @RequestMapping("/kucharz")
     public String kucharz() {
         return "kucharz kucharzowski";

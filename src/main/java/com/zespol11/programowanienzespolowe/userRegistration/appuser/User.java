@@ -13,9 +13,6 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 
-import javax.persistence.Table;
-
-
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -54,13 +51,6 @@ public class User implements UserDetails {
         this.appUserRole = appUserRole;
     }
 
-
-    public User(Long customerId, String name, UserRole appUserRole) {
-        this.customerId = customerId;
-        this.name = name;
-        this.appUserRole = appUserRole;
-    }
-
     public User(Long customerId, String name) {
         this.customerId = customerId;
         this.name = name;
@@ -89,6 +79,8 @@ public class User implements UserDetails {
     public String getSurname() {
         return surname;
     }
+
+
 
     @Override
     public boolean isAccountNonExpired() {

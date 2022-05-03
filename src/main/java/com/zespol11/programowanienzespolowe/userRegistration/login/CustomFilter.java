@@ -20,7 +20,6 @@ public class CustomFilter extends AbstractAuthenticationProcessingFilter {
 
     @Override
     public Authentication attemptAuthentication(
-
             HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String username, password;
@@ -35,6 +34,8 @@ public class CustomFilter extends AbstractAuthenticationProcessingFilter {
 
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
                 username, password);
+
+
 
         return this.getAuthenticationManager().authenticate(authRequest);
     }

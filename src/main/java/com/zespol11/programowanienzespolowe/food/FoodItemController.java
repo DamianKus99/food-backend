@@ -18,7 +18,6 @@ public class FoodItemController {
     }
 
     @GetMapping
-
     public List<FoodItem> getFoodItems(
             @RequestParam(required = false, name = "type") String type,
             @RequestParam(required = false, name = "type-asc") Boolean typeAsc,
@@ -57,8 +56,11 @@ public class FoodItemController {
     public void updateFoodItem(
             @PathVariable("foodItemId") Long foodItemId,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) Double price){
-        foodItemService.updateFoodItem(foodItemId, name, price);
+            @RequestParam(required = false) Double price,
+            @RequestParam(required = false) String type,
+            @RequestParam(required = false) Boolean avaiable,
+            @RequestParam(required = false) String yes){
+        foodItemService.updateFoodItem(foodItemId, name, price, type, avaiable,yes);
     }
 
 
