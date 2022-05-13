@@ -145,12 +145,48 @@ public class FoodItemService {
 
     @EventListener(ApplicationReadyEvent.class)
     public void fillDB(){
-        addNewFoodItem(new FoodItem(1L,"Gnochi ze szpinakiem i pomidorami suszonymi", 33.90, "dania-glowne", true));
-        addNewFoodItem(new FoodItem(2L,"Pieczone żeberka w pikantnej marynacie", 42.90, "sniadania", false));
-        addNewFoodItem(new FoodItem(3L,"Paluchy z parmezanem i sosem pikantnym", 24.90, "dania-glowne", true));
-        addNewFoodItem(new FoodItem(4L,"Lody", 37.90, "desery", true));
-        addNewFoodItem(new FoodItem(5L,"Sałatka grecka", 38.90, "salatki", true));
-        addNewFoodItem(new FoodItem(6L,"Cola", 37.90, "napoje", true));
+        addNewFoodItem(new FoodItem(1L,"Żeberka w sosie BBQ", 45.00, "dania-glowne", true));
+        addNewFoodItem(new FoodItem(2L,"Żeberka w sosie ostrym", 45.00, "dania-glowne", true));
+        addNewFoodItem(new FoodItem(3L,"Hamburger (wołowina w sosie słodko kwaśnym)", 39.99, "dania-glowne", true));
+        addNewFoodItem(new FoodItem(4L,"Hamburger (wołowina, pieczrki i ser w sosie 1000 wysp) ", 39.90, "dania-glowne", true));
+        addNewFoodItem(new FoodItem(5L,"Pizza peperoni", 33.90, "dania-glowne", true));
+        addNewFoodItem(new FoodItem(6L,"Coca-Cola 0.5l", 6.90, "napoje", true));
+        addNewFoodItem(new FoodItem(7L,"Sprite 0.5l", 6.90, "napoje", true));
+        addNewFoodItem(new FoodItem(8L,"Fanta 0.5l", 6.90, "napoje", true));
+        addNewFoodItem(new FoodItem(9L,"Herbata", 6.00, "napoje", true));
+        addNewFoodItem(new FoodItem(10L,"Kawa czarna", 7.00, "napoje", true));
+        addNewFoodItem(new FoodItem(11L,"Kawa z mlekiem", 7.50, "napoje", true));
+        addNewFoodItem(new FoodItem(12L,"Cappuccino", 9.00, "napoje", true));
+        addNewFoodItem(new FoodItem(13L,"Woda niegazowana 0.5l", 5.00, "napoje", true));
+        addNewFoodItem(new FoodItem(14L,"Woda gazowana 0.5l", 6.00, "napoje", true));
+        addNewFoodItem(new FoodItem(15L,"Pizza hawajska", 33.90, "dania-glowne", true));
+        addNewFoodItem(new FoodItem(16L,"Pizza salami", 33.90, "dania-glowne", true));
+        addNewFoodItem(new FoodItem(17L,"Lody czekoladowe", 6.99, "desery", true));
+        addNewFoodItem(new FoodItem(18L,"Lody truskawkowe", 6.99, "desery", true));
+        addNewFoodItem(new FoodItem(19L,"Lody śmietankowe", 4.99, "desery", true));
+        addNewFoodItem(new FoodItem(20L,"Lody pistacjowe", 6.99, "desery", true));
+        addNewFoodItem(new FoodItem(21L,"Sernik", 5.99, "desery", true));
+        addNewFoodItem(new FoodItem(22L,"Ekler", 5.99, "desery", true));
+        addNewFoodItem(new FoodItem(23L,"Kostka królewska", 5.99, "desery", true));
+        addNewFoodItem(new FoodItem(24L,"Sałatka grecka", 15.00, "salatki", true));
+        addNewFoodItem(new FoodItem(25L,"Sałatka z tuńczykiem", 15.00, "salatki", true));
+        addNewFoodItem(new FoodItem(26L,"Sałatka gyros", 15.00, "salatki", true));
+        addNewFoodItem(new FoodItem(27L,"Sałatka z jajkiem", 15.00, "salatki", true));
+        addNewFoodItem(new FoodItem(28L,"Rosół", 8.00, "zupy", true));
+        addNewFoodItem(new FoodItem(29L,"Żurek", 8.00, "zupy", true));
+        addNewFoodItem(new FoodItem(30L,"Barszcz czerwony", 8.00, "zupy", true));
+        addNewFoodItem(new FoodItem(31L,"Barszcz biały", 8.00, "zupy", true));
+        addNewFoodItem(new FoodItem(32L,"Jajecznica", 9.00, "sniadania", true));
+        addNewFoodItem(new FoodItem(33L,"Jajecznica z bekonem", 10.00, "sniadania", true));
+        addNewFoodItem(new FoodItem(34L,"Jajecznica z boczkiem", 10.00, "sniadania", true));
+        addNewFoodItem(new FoodItem(35L,"Nalesnik z czkoladą", 7.00, "sniadania", true));
+        addNewFoodItem(new FoodItem(36L,"Naleśnik z truskawką", 7.00, "sniadania", true));
+        addNewFoodItem(new FoodItem(37L,"Croissant maślany", 5.00, "sniadania", true));
+        addNewFoodItem(new FoodItem(38L,"Croissant z czekoladą", 7.00, "sniadania", true));
+
+
+
+
     }
 
 }
